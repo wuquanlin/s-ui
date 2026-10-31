@@ -4,19 +4,22 @@
 
 ## 使用
 
+在 VPS 的 **root 终端**中执行一行安装命令：
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/wuquanlin/s-ui/main/deploy.sh)
+```
+
+按提示选择域名或 IP，并配置证书即可。
+
+也可以先下载脚本，再以 root 权限运行：
+
 ```bash
 curl -fL https://raw.githubusercontent.com/wuquanlin/s-ui/main/deploy.sh -o /tmp/s-ui-deploy.sh
 sudo bash /tmp/s-ui-deploy.sh
 ```
 
 也可以克隆本仓库后，以 root 运行 `bash deploy.sh --local`。
-
-PR 合并前，预览分支可用以下命令：
-
-```bash
-curl -fL https://raw.githubusercontent.com/wuquanlin/s-ui/feat/install-setup/deploy.sh -o /tmp/s-ui-deploy.sh
-sudo env SUI_DEPLOY_REF=feat/install-setup bash /tmp/s-ui-deploy.sh
-```
 
 1. 每次执行都查询并下载 **alireza0/s-ui 最新稳定发行版**，检查官方 SHA256SUMS；下载或校验失败会停止，不使用旧版回退。
 2. 显示面板、内置 sing-box、sing-box 上游最新稳定版的版本。新版 S-UI 使用内置 sing-box，遵循兼容性优先策略，使用 S-UI 官方配套内核；不会单独下载一个未被面板使用的内核。这里的“最新”指稳定发行版，不包括预发布和尚未发布的代码。
