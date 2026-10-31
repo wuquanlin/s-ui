@@ -9,7 +9,7 @@ curl -fL https://raw.githubusercontent.com/wuquanlin/s-ui/main/deploy.sh -o /tmp
 sudo bash /tmp/s-ui-deploy.sh
 ```
 
-也可以克隆本仓库后，以 root 运行 `bash deploy.sh`。
+也可以克隆本仓库后，以 root 运行 `bash deploy.sh --local`。
 
 PR 合并前，预览分支可用以下命令：
 

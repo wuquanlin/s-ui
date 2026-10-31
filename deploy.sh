@@ -16,7 +16,9 @@ else
     for tool in python3 openssl curl tar; do command -v "$tool" >/dev/null; done
 fi
 script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
-if [[ -f "$script_dir/scripts/deploy.py" ]]; then
+# Adjacent files are trusted only when the caller explicitly requests local mode.
+# A downloaded installer in /tmp must not pick up someone else's /tmp/scripts.
+if [[ ${1:-} == --local ]]; then
     exec python3 "$script_dir/scripts/deploy.py"
 fi
 deploy_dir=$(mktemp -d)
